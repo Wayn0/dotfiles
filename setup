@@ -1,0 +1,4 @@
+#!/bin/sh
+
+ln -sf $HOME/.config/dotFiles/profile ~/.profile
+ln -sf $HOME/.config/dotFiles/kshrc ~/.kshrc
