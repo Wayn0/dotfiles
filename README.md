@@ -1,5 +1,5 @@
 # dotFiles
-X11 dotfiles, mostly for my OpenBSD environment
+dot files for my OpenBSD environment
 
 # Installing
 mkdir $HOME/.config
