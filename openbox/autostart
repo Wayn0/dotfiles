@@ -1,0 +1,4 @@
+# Openbox autostarts
+
+# Load feh Wallpaper
+(sleep 0.5 && ~/.fehbg) &

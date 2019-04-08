@@ -1,4 +1,79 @@
-#!/bin/sh
+#!/bin/ksh
 
-ln -sf $HOME/.config/dotFiles/profile ~/.profile
-ln -sf $HOME/.config/dotFiles/kshrc ~/.kshrc
+# functions
+function pkg_console_setup
+{
+	doas pkg_add -v git
+}
+
+function pkg_x_setup
+{
+	doas pkg_add -v openbox feh
+}
+
+function console_setup
+{
+	ln -sf $HOME/.config/dotFiles/profile ~/.profile
+	ln -sf $HOME/.config/dotFiles/kshrc ~/.kshrc
+	ln -sf $HOME/.config/dotFiles/Xresources ~/.Xresources
+	ln -sf $HOME/.config/dotFiles/xsession ~/.xsession
+}
+
+function openbox_setup
+{
+	# Openbox specific
+	mkdir -p $HOME/.config/openbox
+	ln -sf $HOME/.config/dotFiles/openbox/autostart $HOME/.config/openbox/autostart
+	ln -sf $HOME/.config/dotFiles/openbox/environment $HOME/.config/openbox/environment
+	ln -sf $HOME/.config/dotFiles/openbox/menu.xml $HOME/.config/openbox/menu.xml
+	ln -sf $HOME/.config/dotFiles/openbox/rc.xml $HOME/.config/openbox/rc.xml
+	wallpaper_setup
+}
+
+function wallpaper_setup
+{
+	if [[ -e $HOME/.config/wallpaper.png ]];
+		feh --bg-fill $HOME/.config/wallpaper.png
+	fi
+}
+
+function help
+{
+	echo "This tool is designed to be used to quickly setup a light weight OpenBSD desktop."
+	echo "There is nothing official here, these are just my current settings."
+	echo "\nUsage: ./setup [option]"
+	echo "\n\tOptions\tfull,user"
+	echo "\nAuthor: Wayne Oliver <info@wayneoliver.co.za>"
+}
+
+# Get command line options
+OPTION=$1
+
+echo "Welcome to this workstation setup tool"
+# Check command line options
+case $OPTION in
+	"full")
+		echo "OpenBSD package install"
+	;;
+
+	"console")
+		console_setup
+	;;
+
+	"openbox")
+		openbox_setup
+	;;
+
+	"wallpaper")
+		wallpaper_setup
+	;;
+
+	"help")
+		help
+	;;
+	*)
+		user_setup
+		#help
+	;;
+#End Script
+esac
