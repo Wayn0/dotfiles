@@ -3,16 +3,25 @@
 # functions
 function pkg_console_setup
 {
-	doas pkg_add -v git
+	doas pkg_add -iv git vim colorls
 }
 
 function pkg_x_setup
 {
-	doas pkg_add -v openbox feh
+	doas pkg_add -v openbox feh chromium geany terminus-font colorls
+	if [[ -e /etc/rc.conf.local ]]; then
+		# file exists don't mess with it.
+		echo "You need to add multicast=YES to the top of your /etc/rc.conf.local\n";
+	else
+		doas echo "multicast=YES" > /etc/rc.conf.local
+	fi
+    doas rcctl enable messagebus avahi_daemon
+    doas rcctl order messagebus avahi_daemon
 }
 
 function console_setup
 {
+	pkg_console_setup
 	ln -sf $HOME/.config/dotFiles/profile ~/.profile
 	ln -sf $HOME/.config/dotFiles/kshrc ~/.kshrc
 	ln -sf $HOME/.config/dotFiles/Xresources ~/.Xresources
@@ -21,6 +30,11 @@ function console_setup
 
 function openbox_setup
 {
+	# Install openbox and some basic packages
+	pkg_x_setup
+	# Disable the xenodm xconsole and system beeps
+	doas sed -i 's/xconsole/#xconsole/' /etc/X11/xenodm/Xsetup_0
+	doas echo 'xset b off' >> /etc/X11/xenodm/Xsetup_0
 	# Openbox specific
 	mkdir -p $HOME/.config/openbox
 	ln -sf $HOME/.config/dotFiles/openbox/autostart $HOME/.config/openbox/autostart
@@ -32,17 +46,18 @@ function openbox_setup
 
 function wallpaper_setup
 {
-	if [[ -e $HOME/.config/wallpaper.png ]];
+	if [[ -e $HOME/.config/wallpaper.png ]]; then
 		feh --bg-fill $HOME/.config/wallpaper.png
 	fi
 }
 
 function help
 {
-	echo "This tool is designed to be used to quickly setup a light weight OpenBSD desktop."
+	echo "This tool is designed to be used to quickly setup a light weight OpenBSD (6.5/current)desktop or comfortable shell (for me)."
 	echo "There is nothing official here, these are just my current settings."
+	echo "\nThis tool requires a working doas configuration, don't run it without reading it.\n"
 	echo "\nUsage: ./setup [option]"
-	echo "\n\tOptions\tfull,user"
+	echo "\n\tOptions\tconsole,openbox"
 	echo "\nAuthor: Wayne Oliver <info@wayneoliver.co.za>"
 }
 
@@ -72,8 +87,8 @@ case $OPTION in
 		help
 	;;
 	*)
-		user_setup
-		#help
+		#user_setup
+		help
 	;;
 #End Script
 esac
