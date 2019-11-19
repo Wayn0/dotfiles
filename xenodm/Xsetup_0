@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xsetroot -solid black &
+/usr/local/bin/qiv -z /etc/X11/xenodm/wallpaper.jpg &
