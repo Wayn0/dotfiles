@@ -8,7 +8,7 @@ function pkg_console_setup
 
 function pkg_x_setup
 {
-	doas pkg_add -v openbox feh chromium geany terminus-font colorls
+	doas pkg_add -v openbox feh chromium geany terminus-font colorls flameshot
 	if [[ -e /etc/rc.conf.local ]]; then
 		# file exists don't mess with it.
 		echo "You need to add multicast=YES to the top of your /etc/rc.conf.local\n";
@@ -76,6 +76,7 @@ case $OPTION in
 	;;
 
 	"openbox")
+		console_setup
 		openbox_setup
 	;;
 

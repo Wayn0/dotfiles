@@ -314,9 +314,14 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="W-e">
+    <keybind key="W-e W-r">
       <action name="Execute">
         <command>gmrun</command>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute">
+        <command>xlock</command>
       </action>
     </keybind>
     <keybind key="W-t">
