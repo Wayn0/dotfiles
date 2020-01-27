@@ -1,0 +1,9 @@
+# Set default font
+fontname "terminus:pixelsize=14"
+
+# Turn on sticky group mode
+sticky yes
+
+# Application menu
+command firefox	firefox
+

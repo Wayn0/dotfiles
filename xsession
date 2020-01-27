@@ -16,6 +16,5 @@ xidle &
 # disable system beep
 xset b off
 
-# start openbox!
-/usr/local/bin/ck-launch-session /usr/local/bin/openbox-session
-
+# start cwm
+exec cwm
