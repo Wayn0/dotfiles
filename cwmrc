@@ -7,3 +7,8 @@ sticky yes
 # Application menu
 command firefox	firefox
 
+## Quick move windows
+bind-key 4-h	movewindow left
+bind-key 4-y	movewindow top-left
+bind-key 4-j	movewindow right
+bind-key 4-i	movewindow top-right 

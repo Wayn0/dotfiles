@@ -16,5 +16,15 @@ xidle &
 # disable system beep
 xset b off
 
+# disable CAPS remap to ctrl
+setxkbmap -option ctrl:nocaps
+
+# Enable compiisiting
+xcompmgr -c -o .2 &
+
+# Set wallpaper
+feh --bg-fill $HOME/.config/wallpaper.png
+
+export PATH=$PATH:$HOME/.config/dotFiles/bin
 # start cwm
 exec cwm
