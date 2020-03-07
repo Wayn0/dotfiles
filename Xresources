@@ -1,3 +1,7 @@
+! ===== cursor
+Xcursor.theme : dmz
+Xcursor.size: 18
+
 ! ===== fonts
 Xft.autohint  : 0
 Xft.lcdfilter : lcddefault

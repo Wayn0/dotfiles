@@ -8,7 +8,7 @@ function pkg_console_setup
 
 function pkg_x_setup
 {
-	doas pkg_add -v openbox feh chromium geany terminus-font colorls flameshot
+	doas pkg_add -v openbox feh chromium geany terminus-font colorls flameshot xcursor-dmz
 	if [[ -e /etc/rc.conf.local ]]; then
 		# file exists don't mess with it.
 		echo "You need to add multicast=YES to the top of your /etc/rc.conf.local\n";
@@ -53,7 +53,7 @@ function wallpaper_setup
 
 function help
 {
-	echo "This tool is designed to be used to quickly setup a light weight OpenBSD (6.5/current)desktop or comfortable shell (for me)."
+	echo "This tool is designed to be used to quickly setup a light weight OpenBSD (6.6/current)desktop or comfortable shell (for me)."
 	echo "There is nothing official here, these are just my current settings."
 	echo "\nThis tool requires a working doas configuration, don't run it without reading it.\n"
 	echo "\nUsage: ./setup [option]"

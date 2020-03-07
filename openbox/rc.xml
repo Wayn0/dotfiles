@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Syscrash</name>
+    <name>Bear2</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -343,7 +343,7 @@
       </action>
     </keybind>
     <keybind key="C-A-r">
-      <action name="Reconfigure" />
+      <action name="Reconfigure"/>
     </keybind>
   </keyboard>
   <mouse>

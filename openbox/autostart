@@ -1,4 +1,6 @@
 # Openbox autostarts
 
+xscreensaver -no-splash &
+
 # Load feh Wallpaper
 (sleep 0.1 && ~/.fehbg) &

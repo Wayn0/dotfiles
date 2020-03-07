@@ -17,5 +17,7 @@ xidle &
 xset b off
 
 # start openbox!
-/usr/local/bin/ck-launch-session /usr/local/bin/openbox-session
-
+#/usr/local/bin/ck-launch-session /usr/local/bin/openbox-session
+# start xfce
+#/usr/local/bin/startxfce4 --with-ck-launch
+exec /usr/local/bin/ck-launch-session /usr/local/bin/mate-session
