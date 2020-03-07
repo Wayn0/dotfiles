@@ -16,8 +16,15 @@ xidle &
 # disable system beep
 xset b off
 
-# start openbox!
-#/usr/local/bin/ck-launch-session /usr/local/bin/openbox-session
-# start xfce
-#/usr/local/bin/startxfce4 --with-ck-launch
-exec /usr/local/bin/ck-launch-session /usr/local/bin/mate-session
+# disable CAPS remap to ctrl
+setxkbmap -option ctrl:nocaps
+
+# Enable compiisiting
+xcompmgr -c -o .2 &
+
+# Set wallpaper
+feh --bg-fill $HOME/.config/wallpaper.png
+
+export PATH=$PATH:$HOME/.config/dotFiles/bin
+# start cwm
+exec cwm

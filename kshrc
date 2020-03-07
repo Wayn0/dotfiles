@@ -38,4 +38,9 @@ CYAN='\[\033[36m\]'
 LGRAY='\[\033[37m\]'
 CLEAR='\[\033[39m\]'
 
+export PATH=$PATH:$HOME/.config/dotFiles/bin
 PS1='\u@\h:$BLUE\w$CLEAR \$ '
+
+# xterm / st tranparency
+[ -n "$XTERM_VERSION" ] && transset-df 0.9 --id "$WINDOWID" >/dev/null
+[ "$TERM" = "st-256color" ] && transset-df 0.9 --id "$WINDOWID" > /dev/null

@@ -8,7 +8,7 @@ function pkg_console_setup
 
 function pkg_x_setup
 {
-	doas pkg_add -v openbox feh chromium geany terminus-font colorls flameshot xcursor-dmz
+	doas pkg_add -iv feh chromium firefox adobe-source-code-pro
 	if [[ -e /etc/rc.conf.local ]]; then
 		# file exists don't mess with it.
 		echo "You need to add multicast=YES to the top of your /etc/rc.conf.local\n";
@@ -24,8 +24,14 @@ function console_setup
 	pkg_console_setup
 	ln -sf $HOME/.config/dotFiles/profile ~/.profile
 	ln -sf $HOME/.config/dotFiles/kshrc ~/.kshrc
+}
+
+function x_setup
+{
+	pkg_x_setup
 	ln -sf $HOME/.config/dotFiles/Xresources ~/.Xresources
 	ln -sf $HOME/.config/dotFiles/xsession ~/.xsession
+	ln -sf $HOME/.config/dotFiles/cwmrc ~/.cmwrc
 }
 
 function openbox_setup
@@ -34,13 +40,13 @@ function openbox_setup
 	pkg_x_setup
 	# Disable the xenodm xconsole and system beeps
 	doas sed -i 's/xconsole/#xconsole/' /etc/X11/xenodm/Xsetup_0
-	doas echo 'xset b off' >> /etc/X11/xenodm/Xsetup_0
+	#doas echo 'xset b off' >> /etc/X11/xenodm/Xsetup_0
 	# Openbox specific
-	mkdir -p $HOME/.config/openbox
-	ln -sf $HOME/.config/dotFiles/openbox/autostart $HOME/.config/openbox/autostart
-	ln -sf $HOME/.config/dotFiles/openbox/environment $HOME/.config/openbox/environment
-	ln -sf $HOME/.config/dotFiles/openbox/menu.xml $HOME/.config/openbox/menu.xml
-	ln -sf $HOME/.config/dotFiles/openbox/rc.xml $HOME/.config/openbox/rc.xml
+	#mkdir -p $HOME/.config/openbox
+	#ln -sf $HOME/.config/dotFiles/openbox/autostart $HOME/.config/openbox/autostart
+	#ln -sf $HOME/.config/dotFiles/openbox/environment $HOME/.config/openbox/environment
+	#ln -sf $HOME/.config/dotFiles/openbox/menu.xml $HOME/.config/openbox/menu.xml
+	#ln -sf $HOME/.config/dotFiles/openbox/rc.xml $HOME/.config/openbox/rc.xml
 	wallpaper_setup
 }
 
@@ -57,7 +63,7 @@ function help
 	echo "There is nothing official here, these are just my current settings."
 	echo "\nThis tool requires a working doas configuration, don't run it without reading it.\n"
 	echo "\nUsage: ./setup [option]"
-	echo "\n\tOptions\tconsole,openbox"
+	echo "\n\tOptions\tconsole,cwm"
 	echo "\nAuthor: Wayne Oliver <info@wayneoliver.co.za>"
 }
 
@@ -75,9 +81,9 @@ case $OPTION in
 		console_setup
 	;;
 
-	"openbox")
+	"cwm")
 		console_setup
-		openbox_setup
+		x_setup
 	;;
 
 	"wallpaper")

@@ -10,7 +10,7 @@ Xft.hinting   : 1
 Xft.antialias : 1
 Xft.rgba      : rgb
 ! fixed is the one true font - use iso10646 for unicode characters
-*font         : -misc-fixed-medium-r-semicondensed-*-13-*-*-*-*-*-iso10646-1
+*font         : -misc-fixed-medium-r-semicondensed-*-16-*-*-*-*-*-iso10646-1
 
 ! ===== xidle
 ! drag pointer to lower left corner to lock screen
@@ -26,6 +26,7 @@ XLock.dpmsoff     : 1
 ! plain white-on-black lock screen
 XLock.description : off
 XLock.echokeys    : on
+XLock.echokey     : *
 XLock.info        : 
 XLock.background  : black
 XLock.foreground  : white
@@ -34,6 +35,7 @@ XLock.username    : Username:
 XLock.password    : Password:
 XLock.face        : spleen-24
 XLock.planFace    : spleen-24
+XLock.erasemode   : no_fade
 
 ! ! ===== xclock
 ! ! digital clock in lower right-hand corner

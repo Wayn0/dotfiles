@@ -1,0 +1,30 @@
+# Set default font
+fontname "terminus:pixelsize=14"
+#color activeborder blue
+#color inactiveborder darkblue
+
+# Turn on sticky group mode
+sticky yes
+
+# Change the default terminal
+command term	"st -f \"Source Code Pro:size=14\""
+
+# reload the config
+bind-key CM-r	restart
+
+# Application menu
+command firefox	firefox
+command chrome chrome
+
+## Quick move windows
+bind-key 4-h	window-snap-left	
+bind-key 4-y	window-snap-up-left
+bind-key 4-j	window-snap-right
+bind-key 4-i	window-snap-up-right 
+
+# Tiling
+bind-key 4-c	window-htile
+bind-key 4-v 	window-vtile
+
+# Run
+bind-key 4-r	menu-cmd
