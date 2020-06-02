@@ -48,7 +48,7 @@ XLock.erasemode   : no_fade
 
 ! ===== xterm
 ! zenburn theme - http://kippura.org/zenburnpage
-xterm*faceName:Terminus:style=Regular:size=14
+xterm*faceName:Terminus:style=Regular:size=16
 XTerm*background     : #3f3f3f
 XTerm*foreground     : #dcdccc
 XTerm*cursorColor    : #aaaaaa

@@ -1,0 +1,40 @@
+background yes
+use_xft yes
+#xftfont Terminus:size=14
+xftfont Noto:size=12
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent no
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour black
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color CACACA
+alignment top_middle
+#for this part it is good to know your screen size: xdpyinfo | awk '/dimensions/{print $2}'
+maximum_width 1920
+maximum_height 14
+minimum_size 1920 12
+gap_x 0
+gap_y 0
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale yes
+
+TEXT
+CPU Load: ${loadavg} | \
+Freq: $freq_g GHz | \
+RAM: $memperc% | \
+Uptime: $uptime_short \
+${alignr 15} \
+Vol: ${exec echo "scale=2;`mixerctl outputs.master | cut -d "=" -f2 | cut -d "," -f1` / 255 * 100" | bc | cut -d. -f1}% | \
+${exec [ `mixerctl outputs.master.mute | cut -d "=" -f2` = "on" ] && echo "muted | "} \
+Bat: $apm_battery_life Battery Time: $apm_battery_time Power: $apm_adapter | \
+${color green}${time %T} ${time %a} ${time %v}${color} 

@@ -22,6 +22,9 @@ setxkbmap -option ctrl:nocaps
 # Enable compiisiting
 xcompmgr -c -o .2 &
 
+# bar
+conky &
+
 # Set wallpaper
 feh --bg-fill $HOME/.config/wallpaper.png
 
