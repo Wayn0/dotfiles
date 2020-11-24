@@ -1,7 +1,7 @@
 # Set default font
 fontname "terminus:pixelsize=14"
-#color activeborder blue
-#color inactiveborder darkblue
+color activeborder blue
+color inactiveborder darkblue
 
 gap 25 0 0 0
 snapdist 10
@@ -10,7 +10,7 @@ snapdist 10
 sticky yes
 
 # Change the default terminal
-#command term	"st -f \"Source Code Pro:size=14\""
+command term	"qterminal" #"st -f \"Source Code Pro:size=14\""
 
 # reload the config
 bind-key CM-r	restart

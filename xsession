@@ -26,7 +26,7 @@ xcompmgr -c -o .2 &
 conky &
 
 # Set wallpaper
-feh --bg-fill $HOME/.config/wallpaper.png
+feh --bg-fill $HOME/.config/wallpaper.jpg
 
 export PATH=$PATH:$HOME/.config/dotFiles/bin
 # start cwm

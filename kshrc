@@ -44,3 +44,6 @@ PS1='\u@\h:$BLUE\w$CLEAR \$ '
 # xterm / st tranparency
 [ -n "$XTERM_VERSION" ] && transset-df 0.9 --id "$WINDOWID" >/dev/null
 [ "$TERM" = "st-256color" ] && transset-df 0.9 --id "$WINDOWID" > /dev/null
+
+# Keychain
+eval `keychain --eval --agents ssh id_rsa`

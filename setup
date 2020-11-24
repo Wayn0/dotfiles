@@ -3,7 +3,7 @@
 # functions
 function pkg_console_setup
 {
-	doas pkg_add -iv git vim colorls
+	doas pkg_add -iv git vim colorls keychain
 }
 
 function pkg_x_setup
@@ -24,6 +24,7 @@ function console_setup
 	pkg_console_setup
 	ln -sf $HOME/.config/dotFiles/profile ~/.profile
 	ln -sf $HOME/.config/dotFiles/kshrc ~/.kshrc
+	ln -sf $HOME/.config/dotFiles/vimrc ~/.vimrc
 }
 
 function x_setup
@@ -31,7 +32,7 @@ function x_setup
 	pkg_x_setup
 	ln -sf $HOME/.config/dotFiles/Xresources ~/.Xresources
 	ln -sf $HOME/.config/dotFiles/xsession ~/.xsession
-	ln -sf $HOME/.config/dotFiles/cwmrc ~/.cmwrc
+	ln -sf $HOME/.config/dotFiles/cwmrc ~/.cwmrc
 }
 
 function openbox_setup
